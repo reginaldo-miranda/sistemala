@@ -14,170 +14,72 @@ class CreateCadastrosTable extends Migration
     public function up()
     {
         Schema::create('cadastros', function (Blueprint $table) {
-            $table->id();
+        
+            $table->increments('id_codigo');
+            // $table->Codigo varchar(15),
+            $table->smallint('Ativo');
+            $table->string('Nome', 100);
+            $table->string('Fantasia',80);
+            $table->string('Endereco', 100);
+            $table->string('bairro', 40);
+            $table->string('Cidade', 100);
+            $table->string('Cep', 11);
+            $table->string('Uf', 2);
+            $table->string('Fone1', 16);
+            $table->string('fone2', 16);
+            $table->string('CompFone', 16);
+            $table->string('Fax', 16);
+            $table->string('Documento1', 20);
+            $table->string('Documento2', 20);
+            $table->string('Pessoa', 1);
+            $table->smallint('flagCli');
+            $table->smallint('flagFor');
+            $table->smallint('flagVen');
+            $table->smallint('flagTransp');
+            $table->smallint('flagConp');
+            $table->smallint('flagConc');
+            $table->string('Email', 60);
+            $table->text('Obs');
+            $table->string('Usuario', 50);
+            $table->date('DataInc');
+            $table->date('DataAlt');
+            $table->integer('EmpresaAlt');
+            $table->float('ComVend');
+            $table->string('CodVend', 15);
+            $table->string('CodTransp', 15);
+            $table->smallint('flagTecnico');
+            $table->integer('Bloqueado');
+            $table->string('MotivoBloqueio', 50);
+            $table->float('DescMaxVend');
+            $table->string('SenhaVend', 15);
+            $table->float('DescFornec');
+            $table->integer('VisualDesc');
+            $table->string('Regiao');
+            $table->float('LimCredito');
+            $table->float('SaldoUtilizado');
+            $table->smallint('Transmitido');
+            $table->smallint('FlagGuia');
+            $table->integer('CodPais');
+            $table->smallint('FlagMotorista');
+            $table->smallint('EmpresaFat');
+            $table->smallint('FlagCRM');
+            $table->string('CodGuia');
+            $table->float('ComisGuia');
+            $table->string('CodTabPreco');
+            $table->string('CodCtaRazao', 6);
+            $table->smallint('FlagGerRisco');
+            $table->string('ComplEnd',30);
+            $table->float('TipoNota');
+            $table->smallint('FlagFuncionario');
+            $table->smallint('FlagPrestServ');
+            $table->smallint('FlagEntregador');
+            $table->smallint('FlagNFeAnfavea');
+            $table->string('DocEstrangeiro',20);
+            $table->time('HoraAlt');
+            $table->integer('EndEntrega');
+            $table->integer('EndCobranca');
             $table->timestamps();
-//---------------------------------
-
-   // $table->Codigo varchar(15),
-
-    $table->smallint('Ativo');
-    $table->string('Nome', 100);
-
-    $table->string('Fantasia',80);
-
-     Fantasia varchar(50),
-
-     $table->string('Endereco', 100);
-    Endereco varchar(50);
-
-    $table->string('bairro', 40);
-    Bairro varchar(20),
-
-    $table->string('Cidade', 100);
-    Cidade varchar(20),
-
-    $table->string('Cep', 11);
-    CEP varchar(9),
-
-    $table->string('Uf', 2);
-    UF varchar(2),
-
-    $table->string('Fone1', 16);
-    Fone1 varchar(15),
-
-    $table->string('fone2', 16);
-    Fone2 varchar(15),
-
-    $table->string('CompFone', 16);
-    CompFone varchar(15),
-
-    $table->string('Fax', 16);
-    Fax varchar(15),
-
-
-    $table->string('Documento1', 20);
-    Documento1 varchar(20),
-
-    $table->string('Documento2', 20);
-    Documento2 varchar(20),
-
-    $table->string('Pessoa', 1);
-    Pessoa varchar(1),
-
-    $table->smallint('flagCli');
-    FlagCli smallint,
-
-
-    $table->smallint('flagFor');
-    FlagFor smallint,
-
-    $table->smallint('flagVen');
-    FlagVen smallint,
-
-    $table->smallint('flagTransp');
-    FlagTransp smallint,
-
-    $table->smallint('flagConp');
-    FlagConP smallint,
-
-    $table->smallint('flagConc');
-    FlagConC smallint,
-
-    $table->string('Email', 60);
-    Email varchar(50),
-
-    $table->text('Obs');
-    Obs text,
-
-    $table->string('Usuario', 50);
-    Usuario varchar(15),
-
-
-    $table->date('DataInc');
-    DataInc date,
-
-
-    $table->date('DataAlt');
-    DataAlt date,
-
-    $table->integer('EmpresaAlt');
-    EmpresaAlt int,
-
-    $table->float('ComVend');
-    ComVend float,
-
-    $table->string('CodVend', 15);
-    CodVend varchar(15),
-
-    $table->string('CodTransp', 15);
-    CodTransp varchar(15),
-
-    
-    $table->smallint('flagTecnico');
-    FlagTecnico smallint,
-
-    $table->integer('Bloqueado');
-    Bloqueado int,
-
-    $table->string('MotivoBloqueio', 50);
-    MotivoBloqueio varchar(50),
-
-    $table->float('DescMaxVend');
-    DescMaxVend float,
-
-    $table->string('SenhaVend', 15);
-    SenhaVend varchar(15),
-
-    $table->float('DescFornec');
-    DescFornec float,
-
-    $table->integer('VisualDesc');
-    VisualDesc int,
-
-
-    $table->string('Regiao');
-    CondPgto varchar(15),
-
-    $table->float('LimCredito');
-    LimCredito float,
-
-    $table->float('SaldoUtilizado');
-    SaldoUtilizado float,
-
-    
-    Transmitido smallint,
-    FlagGuia smallint,
-    CodPais int,
-    RefEntrega varchar(40),
-    FlagMotorista smallint,
-    EmpresaFat smallint,
-    FlagCRM smallint,
-    CodGuia varchar(15),
-    ComisGuia float,
-    CodTabPreco varchar(15),
-    CodCtaRazao varchar(6),
-    FlagGerRisco smallint,
-    ComplEnd varchar(30),
-    TipoNota float,
-    FlagFuncionario smallint,
-    FlagPrestServ smallint,
-    FlagEntregador smallint,
-    FlagNFeAnfavea smallint,
-    DocEstrangeiro varchar(20),
-    HoraAlt time,
-    EndEntrega int,
-    EndCobranca int,
-   primary key (Codigo));
-
-
-
-//---------------------------------------
-
-
-
-
-
-
+        
         });
     }
 
